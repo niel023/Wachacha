@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="formulario.css">
+        
+    </head>
+    <body>
+        <fieldset>
+            <legend>Registro</legend>
+            <form id="formulario">
+                <label for="Nombre">Nombre: </label>
+                <br>
+                <input type="text" id="Nombre" required>
+                <br>
+                <label for="Apellido">Apellido: </label>
+                <br>
+                <input type="text" id="Apellido">
+                <br>
+                <label for="Email">Email: </label>
+                <br>
+                <input type="text" id="Email" required pattern=".+@.+">
+                <br>
+                <label for="Password">Password: </label>
+                <br>
+                <input type="text" id="Password" minlength="6">
+                <br>
+                <label for="comentario">Comentarios: </label>
+                <br>
+                <textarea name="comentario" id="comentario" cols="30" rows="0" maxlength="50" required></textarea>
+                <br>
+                <input type="checkbox" name="condiciones" id="condiciones" required>
+                <label for="condiciones">Acepto las condiciones del servicio</label>
+                <br>
+                <button type="submit">Enviar</button>
+
+            </form>
+        </fieldset>
+        <script>
+
+            const form = document.getElementById("formulario");
+            form.addEventListener("submit", comprobacion())
+            function comprobacion(){
+                const nombre = document.getElementById("nombre").value;
+                const password = document.getElementById("password").value;
+                const email = document.getElementById("email").value;
+                const comentario = document.getElementById("comentario").value;
+                if(!nombre || !password || !email || !comentario){
+                    alert("Los campos: nombre, password, email y comentarios es obligatorio");
+                    return;
+                }
+                if(!email.includes("@")){
+                    alert("El email debe contener un @");
+                    return;
+                }
+                if(comentario.lenght>50){
+                    alert("El comentario es demasiado grande");
+                    return;
+                }
+                if(password.lenght<6){
+                    alert("La contraseña tiene que tener mínimo 6 caracteres");
+                    return;
+
+                }
+                alert("El formulario ha sido enviado");
+            }
+            
+        
+        </script>
+    </body>
+</html>

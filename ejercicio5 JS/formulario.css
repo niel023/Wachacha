@@ -1,0 +1,8 @@
+label{
+    font-weight: bold;
+}
+input:focus:required:invalid{
+    font-weight:bold;
+    background-color: brown;
+    opacity: 50%;
+}
